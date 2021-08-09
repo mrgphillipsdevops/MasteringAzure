@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Azure Function1",
+				"name": "Azure Function DataRightsSync",
 				"type": "AzureFunctionActivity",
 				"dependsOn": [],
 				"policy": {
@@ -29,7 +29,7 @@
 				}
 			},
 			{
-				"name": "Web1",
+				"name": "Web DataRightsSync",
 				"type": "WebActivity",
 				"dependsOn": [],
 				"policy": {
