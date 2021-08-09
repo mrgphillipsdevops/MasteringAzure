@@ -6,14 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-shared-01"
-		},
-		"AzureFunction1_functionKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'functionKey' of 'AzureFunction1'"
-		},
-		"AzureFunction1_properties_typeProperties_functionAppUrl": {
-			"type": "string",
-			"defaultValue": "https://datarightssynctestgreg20210809095022.azurewebsites.net"
 		}
 	},
 	"variables": {
@@ -45,8 +37,7 @@
 						],
 						"typeProperties": {
 							"functionName": "HttpExample",
-							"method": "GET",
-							"headers": {}
+							"method": "GET"
 						},
 						"linkedServiceName": {
 							"referenceName": "AzureFunction1",
@@ -68,33 +59,12 @@
 						"typeProperties": {
 							"url": "https://datarightssynctestgreg20210809095022.azurewebsites.net/api/HttpExample?name=ADFRun",
 							"method": "GET",
-							"headers": {},
 							"disableCertValidation": true
 						}
 					}
 				],
 				"annotations": [],
 				"lastPublishTime": "2021-08-09T14:18:51Z"
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureFunction1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureFunction1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureFunction",
-				"typeProperties": {
-					"functionAppUrl": "[parameters('AzureFunction1_properties_typeProperties_functionAppUrl')]",
-					"functionKey": {
-						"type": "SecureString",
-						"value": "[parameters('AzureFunction1_functionKey')]"
-					},
-					"authentication": "Anonymous"
-				}
 			},
 			"dependsOn": []
 		}
